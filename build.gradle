@@ -1,0 +1,62 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-docker-plugin:3.2.4'
+    }
+}
+
+apply plugin: 'com.bmuschko.docker-remote-api'
+
+apply plugin: 'idea'
+apply plugin: 'java'
+group 'net.bootlab'
+version = "0.1.0"
+
+ext {
+    dockerTag = version
+    dockerAppName = 'mychat'
+    dockerRegistry = 'localhost'
+}
+
+subprojects {
+    apply plugin: 'idea'
+    group 'net.bootlab'
+    version = "0.1.0"
+
+    repositories {
+        mavenLocal()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        jcenter()
+    }
+}
+
+task buildImage(type: DockerBuildImage) {
+    
+    
+    dependencies {
+        compile project(':backend')
+    }
+    
+    doFirst {
+        copy {
+            from "${project(':backend').buildDir}/libs/backend-${version}.jar"
+            into "devops/docker"
+        }
+    }
+    inputs.file("${project(':backend').buildDir}/libs/backend-${version}.jar")
+    outputs.dir("${project.rootDir}/devops/docker")
+
+    buildArgs =  [
+        JAR_FILE : "backend-${version}.jar"
+    ]
+    
+    inputDir = file('devops/docker')
+    tags = ["${dockerRegistry}/${dockerAppName}:${dockerTag}".toString()]
+}
