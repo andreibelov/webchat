@@ -10,8 +10,8 @@ import static net.bootlab.webchat.configs.Endpoints.API_STUFF;
 public class StuffController {
 
     @RequestMapping(API_STUFF)
-    @ResponseBody
+//    @ResponseBody
     public String greetings() {
-        return "greetings.txt";
+        return "favicon.txt";
     }
 }

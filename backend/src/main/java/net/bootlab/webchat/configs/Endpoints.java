@@ -12,6 +12,8 @@ public interface Endpoints {
 
     String API_USERS = API_PREFIX + "users";
 
+    String API_CHAT = API_PREFIX + "chat";
+
     String API_STUFF = "/stuff";
 
 }
