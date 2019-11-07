@@ -23,8 +23,9 @@ public class ChatDto {
     private Long id;
     private String category;
     private String description;
-    @JsonManagedReference
+    @Builder.Default
     private Set<UserDto> members = new HashSet<>();
+    @Builder.Default
     private List<MessageDto> messages = new ArrayList<>();
 
 }

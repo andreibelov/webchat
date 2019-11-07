@@ -28,7 +28,7 @@ public class TestDataInitializer {
                     .setActive(true)
                     .setEmail("test@test.test")
                     .setFirstName("Алексей")
-                    .setSecondName("Быков")
+                    .setLastName("Быков")
                     .setRole(Role.ADMIN_ROLE)
                     .setPassword("password"));
 

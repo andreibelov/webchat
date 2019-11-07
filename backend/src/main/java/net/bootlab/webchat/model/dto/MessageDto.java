@@ -19,6 +19,7 @@ public class MessageDto {
     private UUID uuid;
     private String text;
     @JsonIgnore
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
     private ChatDto chat;

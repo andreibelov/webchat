@@ -1,2 +1,19 @@
 rootProject.name = 'webchat'
-include 'backend'
+include 'backend', 'frontend'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
