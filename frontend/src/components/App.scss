@@ -1,13 +1,21 @@
 @import './../../node_modules/antd/dist/antd.css';
 
-body {
-  padding-top: 50px;
+html, body, #root, .App {
+  height: 100%
 }
 
-div.root{
-  background-color: #000000;
-  width: 600px;
-  padding: 12px;
-  margin-left: auto ;
-  margin-right: auto
+#root {
+  min-height: 100vh;
+}
+
+.app {
+  min-height: calc(100vh - 64px)
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  background: #001529;
+  margin: 16px 28px 16px 0;
+  float: left;
 }

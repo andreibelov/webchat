@@ -7,7 +7,6 @@ import App from './components/App';
 
 import '../static/manifest.json';
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+const mountNode = document.getElementById('root');
+
+ReactDOM.render(<App />, mountNode);

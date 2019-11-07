@@ -8,11 +8,12 @@ const {Column, ColumnGroup} = Table;
 // rowSelection object indicates the need for row selection
 const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
-        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+        console.log(`selectedRowKeys: ${selectedRowKeys}`);
+        console.log('selectedRows: ', JSON.stringify(selectedRows));
     },
     getCheckboxProps: record => ({
-        disabled: record.name === 'Disabled User', // Column configuration not to be checked
-        name: record.name,
+        disabled: record.email === 'test@test.test', // Column configuration not to be checked
+        name: record.email,
     }),
 };
 
